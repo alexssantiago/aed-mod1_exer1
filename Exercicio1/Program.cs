@@ -9,13 +9,17 @@ namespace Exercicio1
         {
             //Console.WriteLine(Recursividade.FatorialRecursivo(4));
             //Console.WriteLine(Recursividade.FibonacciRecursivo(6));
-            //Console.WriteLine(Recursividade.TiraVogalRecursivo("Algoritmos e Estruturas de dados")); // lgrtms strtrs d dds
 
-            int[,] mat = new int[3, 3];
+            //string frase = "Algoritmos e Estruturas de dados";
 
-            mat[0, 0] = 7; mat[0, 1] = 10; mat[0, 2] = 4;
-            mat[1, 0] = 12; mat[1, 1] = 5; mat[1, 2] = 9;
-            mat[2, 0] = 2; mat[2, 1] = 8; mat[2, 2] = 11;
+            //Console.WriteLine(Recursividade.TiraVogal(frase)); // lgrtms strtrs d dds
+            //Console.WriteLine(Recursividade.TiraVogalRecursivo(frase, frase.Length - 1)); // lgrtms strtrs d dds
+
+            //int[,] mat = new int[3, 3];
+
+            //mat[0, 0] = 7; mat[0, 1] = 10; mat[0, 2] = 4;
+            //mat[1, 0] = 12; mat[1, 1] = 5; mat[1, 2] = 9;
+            //mat[2, 0] = 2; mat[2, 1] = 8; mat[2, 2] = 11;
 
             //mat[0, 0] = 11; mat[0, 1] = 8; mat[0, 2] = 6; mat[0, 3] = 6;
             //mat[1, 0] = 0; mat[1, 1] = 2; mat[1, 2] = 17; mat[1, 3] = 1;
@@ -25,8 +29,8 @@ namespace Exercicio1
             //mat[0, 0] = 7; mat[0, 1] = 10;
             //mat[1, 0] = 4; mat[1, 1] = 14;
 
-            Console.WriteLine(Recursividade.SomaDiagonais(mat));
-            Console.WriteLine(Recursividade.SomaDiagonaisRecursivo(mat, 3));
+            //Console.WriteLine(Recursividade.SomaDiagonais(mat));
+            //Console.WriteLine(Recursividade.SomaDiagonaisRecursivo(mat, 3));
 
             Console.ReadKey();
 

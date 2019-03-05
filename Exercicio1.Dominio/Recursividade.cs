@@ -4,6 +4,8 @@ namespace Exercicio1.Dominio
 {
     public static class Recursividade
     {
+        public static List<string> vogais = new List<string> { "a", "e", "i", "o", "u" };
+
         public static int Fatorial(int n)
         {
             if (n == 0)
@@ -59,8 +61,6 @@ namespace Exercicio1.Dominio
         {
             string fraseFinal = string.Empty;
 
-            var vogais = new List<string> { "a", "e", "e", "i", "o", "u" };
-
             foreach (char letra in frase)
             {
                 if (!vogais.Contains(letra.ToString().ToLower()))
@@ -70,19 +70,14 @@ namespace Exercicio1.Dominio
             return fraseFinal;
         }
 
-        public static string TiraVogalRecursivo(string frase)
+        public static string TiraVogalRecursivo(string frase, int last)
         {
-            var letra = frase[frase.Length - 1];
-            var vogais = new List<char> { 'a', 'e', 'e', 'i', 'o', 'u' };
-
-            if (frase.Equals(""))
-                return string.Empty;
-            else if (vogais.Contains(letra))
-                return TiraVogalRecursivo(frase.Trim(letra));
+            if (last < 0)
+                return frase;
+            else if (vogais.Contains(frase[last].ToString().ToLower()))
+                return TiraVogalRecursivo(frase.Replace(frase[last].ToString(), ""), (last - 2));
             else
-                return "";
-            //return TiraVogalRecursivo(frase.TrimEnd(letra));
-
+                return TiraVogalRecursivo(frase, (last - 1));
         }
 
         public static int SomaDiagonais(int[,] mat)
@@ -94,7 +89,7 @@ namespace Exercicio1.Dominio
                 soma += mat[i, i] + mat[i, j];
                 j--;
             }
-            
+
             return soma;
         }
 
