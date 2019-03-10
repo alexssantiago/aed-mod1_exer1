@@ -7,12 +7,15 @@ namespace Exercicio1
     {
         static void Main(string[] args)
         {
+            //Console.WriteLine(Recursividade.Fatorial(4));
+            //Console.WriteLine(Recursividade.Fibonacci(4));
             //Console.WriteLine(Recursividade.FatorialRecursivo(4));
             //Console.WriteLine(Recursividade.FibonacciRecursivo(6));
 
             //string frase = "Algoritmos e Estruturas de dados";
+            string frase = "Alexsander"; //lxsndr
 
-            //Console.WriteLine(Recursividade.TiraVogal(frase)); // lgrtms strtrs d dds
+            Console.WriteLine(Recursividade.TiraVogal(frase)); // lgrtms strtrs d dds
             //Console.WriteLine(Recursividade.TiraVogalRecursivo(frase, frase.Length - 1)); // lgrtms strtrs d dds
 
             //int[,] mat = new int[3, 3];

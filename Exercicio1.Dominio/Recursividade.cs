@@ -4,22 +4,21 @@ namespace Exercicio1.Dominio
 {
     public static class Recursividade
     {
-        public static List<string> vogais = new List<string> { "a", "e", "i", "o", "u" };
+        private static List<string> vogais = new List<string> { "a", "e", "i", "o", "u" };
 
+        //1.
         public static int Fatorial(int n)
         {
             if (n == 0)
                 return 1;
 
-            int fat = n;
+            for (int x = (n - 1); x > 0; x--) //se repete n-1 vezes
+                n *= x; //O(1)
 
-            for (int x = (n - 1); x > 0; x--)
-            {
-                fat *= x;
-            }
-
-            return fat;
+            return n;
         }
+        //Custo: F(n) = n - 1
+        //Classe: F(n) = O(n)
 
         public static int FatorialRecursivo(int n)
         {
@@ -29,6 +28,7 @@ namespace Exercicio1.Dominio
                 return n * FatorialRecursivo(n - 1);
         }
 
+        //2.
         public static int Fibonacci(int n)
         {
             //Fn = Fn-1 + Fn-2
@@ -40,14 +40,16 @@ namespace Exercicio1.Dominio
             F[0] = F[1] = 1;
 
             //Calculando F(2) em diante...
-            for (int i = 2; i < F.Length; i++)
+            for (int i = 2; i < F.Length; i++) //se repete n-1 vezes
             {
-                F[i] = F[i - 1] + F[i - 2];
-                Fn = F[i];
+                F[i] = F[i - 1] + F[i - 2]; //O(1)
+                Fn = F[i]; //O(1)                  x 2
             }
 
             return Fn;
         }
+        //Custo: F(n) = 2n - 2
+        //Classe: F(n) = O(n)
 
         public static int FibonacciRecursivo(int n)
         {
@@ -57,18 +59,18 @@ namespace Exercicio1.Dominio
                 return FibonacciRecursivo(n - 1) + FibonacciRecursivo(n - 2);
         }
 
+        //3.
         public static string TiraVogal(string frase)
         {
             string fraseFinal = string.Empty;
 
-            foreach (char letra in frase)
-            {
-                if (!vogais.Contains(letra.ToString().ToLower()))
-                    fraseFinal += letra;
-            }
+            for (int i = 0; i < frase.Length; i++) //se repete n vezes
+                if (!vogais.Contains(frase[i].ToString().ToLower())) fraseFinal += frase[i]; //O(1)
 
             return fraseFinal;
         }
+        //Custo: F(n) = n
+        //Classe: F(n) = O(n)
 
         public static string TiraVogalRecursivo(string frase, int last)
         {
@@ -80,18 +82,21 @@ namespace Exercicio1.Dominio
                 return TiraVogalRecursivo(frase, (last - 1));
         }
 
+        //4.
         public static int SomaDiagonais(int[,] mat)
         {
             int soma = 0, j = mat.GetLength(1) - 1;
 
-            for (int i = 0; i < mat.GetLength(0); i++)
+            for (int i = 0; i < mat.GetLength(0); i++) //se repete n vezes
             {
-                soma += mat[i, i] + mat[i, j];
-                j--;
+                soma += mat[i, i] + mat[i, j]; //O(1)
+                j--; //O(1)                           x 2
             }
 
             return soma;
         }
+        //Custo: F(n) = 2n
+        //Classe: F(n) = O(n)
 
         public static int SomaDiagonaisRecursivo(int[,] mat, int n)
         {
