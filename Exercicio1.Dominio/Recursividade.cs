@@ -106,5 +106,27 @@ namespace Exercicio1.Dominio
                 return mat[n - 1, n - 1] + mat[n - 1, mat.GetLength(1) - n] + SomaDiagonaisRecursivo(mat, n - 1);
         }
 
+        // -------------------------------------------------------------------------------------------------------
+        
+        //5) Calcule as funções de complexidade dos algoritmos a seguir:
+
+        //b) 
+        public void alg6(int[] intArray){
+            int temp, j;
+            for (int i = 1; i < intArray.Length; i++){ //se repete n-1 vezes
+                temp = intArray[i]; //1
+                j = i - 1; //2
+                while (j >= 0 && intArray[j] > temp){
+                    intArray[j + 1] = intArray[j];
+                    j--;
+                }
+                intArray[j + 1] = temp; //3
+            }
+        }
+        //Melhor caso: f(n) = n - 1
+        //Pior caso: f(n) = n(n - 1) = n^2 - n
+        //Caso médio: f(n) = n(n-1) + (n-1)/2 = (n^2) - 1/2
+
+
     }
 }
