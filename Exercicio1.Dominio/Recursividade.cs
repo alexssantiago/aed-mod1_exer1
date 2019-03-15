@@ -27,7 +27,10 @@ namespace Exercicio1.Dominio
             else
                 return n * FatorialRecursivo(n - 1);
         }
-
+        //Custo: F(n) = (n - 1) + 1
+        //S(n) = S(n-1) + 1 
+        //Classe: F(n) = O(n)
+        
         //2.
         public static int Fibonacci(int n)
         {
@@ -58,6 +61,9 @@ namespace Exercicio1.Dominio
             else
                 return FibonacciRecursivo(n - 1) + FibonacciRecursivo(n - 2);
         }
+        //Custo: F(n) = (n-1) + (n-2) = 2n - 3
+        //S(n) = S(n-1) + S(n-2) + 1
+        //Classe: F(n) = O(n)
 
         //3.
         public static string TiraVogal(string frase)
@@ -81,7 +87,9 @@ namespace Exercicio1.Dominio
             else
                 return TiraVogalRecursivo(frase, (last - 1));
         }
-
+        //Custo: F(n) = n
+        //Classe: F(n) = O(n)
+        
         //4.
         public static int SomaDiagonais(int[,] mat)
         {
@@ -105,11 +113,30 @@ namespace Exercicio1.Dominio
             else
                 return mat[n - 1, n - 1] + mat[n - 1, mat.GetLength(1) - n] + SomaDiagonaisRecursivo(mat, n - 1);
         }
+        //Custo: F(n) = (n-1) + 2
+        //S(n) = S(n-1) + 2
+        //Classe: F(n) = O(n)
 
         // -------------------------------------------------------------------------------------------------------
         
         //5) Calcule as funções de complexidade dos algoritmos a seguir:
 
+        //a)
+        public int alg5(int[] a, int x) {
+            int low = 0;
+            int high = a.length - 1;
+            while (low <= high) {
+                int mid = (low + high)/2;
+                if (a[mid] == x) return mid;
+                else if (a[mid] < x) low = mid + 1;
+                else high = mid - 1;
+            }
+            return -1;
+        }
+        //Melhor caso: f(n) = 1
+        //Pior caso: f(n) = log N + 1
+        //Caso médio: f(n) = log N + 2 / 2
+        
         //b) 
         public void alg6(int[] intArray){
             int temp, j;
@@ -123,10 +150,9 @@ namespace Exercicio1.Dominio
                 intArray[j + 1] = temp; //3
             }
         }
-        //Melhor caso: f(n) = n - 1
-        //Pior caso: f(n) = n(n - 1) = n^2 - n
-        //Caso médio: f(n) = n(n-1) + (n-1)/2 = (n^2) - 1/2
-
+        //Melhor caso: f(n) = 3(n - 1)
+        //Pior caso: f(n) = (n - 1)(n + 3) = n^2 + 2n - 3
+        //Caso médio: f(n) = (n^2) - 5n/2
 
     }
 }
